@@ -1,11 +1,20 @@
 import InfoSection from "@/components/InfoSection";
 import PageHeader from "@/components/PageHeader";
 import ProductList from "@/components/ProductList";
+import Image from "next/image";
 
 export default function Home() {
   return (
     // main container
-    <div className="w-[1256px]  border border-[#E8EBF0] bg-white rounded-2xl py-10 px-16">
+    <div className="w-[1256px]  border border-[#E8EBF0] bg-white rounded-2xl py-10 px-16 relative">
+      <Image
+        src="/roblox-avatar.png"
+        alt="Roblox character"
+        width={418}
+        height={418}
+        className="absolute top-0 right-0 object-contain"
+      />
+
       {/* child container*/}
       <div className="bg-gray-100  flex flex-col">
         <PageHeader />
