@@ -37,10 +37,10 @@ export default function PageHeader() {
 
   return (
     <div className="max-w-[680px]">
-      <h1 className="text-[#36394A] font-inter text-2xl not-italic font-semibold leading-8">
+      <h1 className="text-[#36394A] font-[Inter] text-2xl not-italic font-semibold leading-8">
         Робуксы Roblox
       </h1>
-      <p className="text-[#6E7076] font-inter text-base not-italic font-normal leading-6 mt-1">
+      <p className="text-[#6E7076] font-[Inter] text-base not-italic font-normal leading-6 mt-1">
         Какой-то длинный текст, связанный с SEO-оптимизацией относительно данной
         категории, на которую вы сейчас смотрите. Какой-то длинный текст,
         связанный с SEO-оптимизацией относительно данной категории, на которую
@@ -50,10 +50,14 @@ export default function PageHeader() {
         {categories.map((category) => (
           <button
             key={category.name}
-            className="flex h-8 px-3 py-1 justify-center items-center gap-1.5 rounded-md bg-[rgba(92,128,253,0.08)] text-[#5C80FD]"
+            className="font-[Inter] flex h-8 px-3 py-1 justify-center items-center gap-1.5 rounded-md bg-[rgba(92,128,253,0.08)] text-[#5C80FD]"
           >
-            <div>{category.name}</div>
-            <div>{category.count}</div>
+            <div className="text-center font-[Inter] text-sm not-italic font-medium leading-5">
+              {category.name}
+            </div>
+            <div className="text-center font-[Inter] text-[10px] not-italic font-semibold leading-5 tracking-[0.8px]">
+              {category.count}
+            </div>
           </button>
         ))}
       </div>
