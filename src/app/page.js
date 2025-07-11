@@ -18,7 +18,7 @@ export default function Home() {
       {/* child container*/}
       <div className=" flex flex-col">
         <PageHeader />
-        <hr className="border-b border-[#E8EBF0]" />
+        <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0" />
         {/* <ProductList /> */}
         {/* <InfoSection /> */}
       </div>

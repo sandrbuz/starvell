@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 export default function PageHeader() {
+  const [selectedCategory, setSelectedCategory] = useState("Blox Fruits");
   const [categories, setCategories] = useState([
     { name: "Робуксы", count: 395 },
     { name: "Подарочные карты", count: 1193 },
@@ -47,19 +48,28 @@ export default function PageHeader() {
         вы сейчас смотрите.
       </p>
       <div className="flex flex-wrap gap-2 my-6">
-        {categories.map((category) => (
-          <button
-            key={category.name}
-            className="font-[Inter] flex h-8 px-3 py-1 justify-center items-center gap-1.5 rounded-md bg-[rgba(92,128,253,0.08)] text-[#5C80FD]"
-          >
-            <div className="text-center font-[Inter] text-sm not-italic font-medium leading-5">
-              {category.name}
-            </div>
-            <div className="text-center font-[Inter] text-[10px] not-italic font-semibold leading-5 tracking-[0.8px]">
-              {category.count}
-            </div>
-          </button>
-        ))}
+        {categories.map((category) => {
+          const isSelected = category.name === selectedCategory;
+          return (
+            <button
+              key={category.name}
+              className={`font-[Inter] flex h-8 px-3 py-1 justify-center items-center gap-1.5 rounded-md transition-colors duration-150
+                ${
+                  isSelected
+                    ? "bg-[#5C80FD] text-white"
+                    : "bg-[rgba(92,128,253,0.08)] text-[#5C80FD]"
+                }
+              `}
+            >
+              <div className="text-center font-[Inter] text-sm not-italic font-medium leading-5">
+                {category.name}
+              </div>
+              <div className="text-center font-[Inter] text-[10px] not-italic font-semibold leading-5 tracking-[0.8px]">
+                {category.count}
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
