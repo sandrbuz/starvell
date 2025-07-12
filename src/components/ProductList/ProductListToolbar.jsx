@@ -28,7 +28,7 @@ export default function ProductListToolbar() {
           {tabs.map((tab, idx) => (
             <button
               key={idx}
-              className={`inline-flex h-9 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg ${
+              className={`inline-flex h-9 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-md ${
                 tab.label === activeTab
                   ? "bg-[#5C80FD]"
                   : "bg-[rgba(92,128,253,0.08)]"
@@ -68,10 +68,10 @@ export default function ProductListToolbar() {
         </div>
 
         <button
-          className="inline-flex px-4 py-2 justify-center items-center gap-1.5 rounded-lg bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF]"
+          className="cursor-pointer inline-flex px-4 py-[7px] justify-center items-center gap-1.5 rounded-lg bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF]"
           onClick={() => setIsPopupOpen(true)}
         >
-          <span className="text-white text-center  text-sm not-italic font-medium leading-5">
+          <span className="text-white text-center  text-sm not-italic font-medium leading-5 ">
             Продать Blox Fruits
           </span>
         </button>
@@ -136,9 +136,24 @@ export default function ProductListToolbar() {
           onClick={() => setIsPopupOpen(false)}
         >
           <div
-            className="pt-[23px] pl-[22px] pr-[22px] bg-white w-[488px]  rounded-2xl border border-[#E8EBF0] shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)]"
+            className="pt-[24px] pl-[23px] pb-[22px] pr-[23px] bg-white w-[488px]  rounded-2xl border border-[#E8EBF0] shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Кнопка закрытия */}
+            <button
+              className="absolute -right-16.5 w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center"
+              style={{ top: "-0.05rem" }}
+              onClick={() => setIsPopupOpen(false)}
+            >
+              <Image
+                src="/close.svg"
+                alt="Close"
+                width={24}
+                height={24}
+                className="flex-shrink-0"
+              />
+            </button>
+
             {/* Содержимое popup */}
             <h1 className="text-[#36394A] font-[Inter] text-xl not-italic font-semibold leading-7">
               Жалоба на 0xHearts.com
@@ -160,17 +175,15 @@ export default function ProductListToolbar() {
                 className="w-[17px] h-4"
               />
             </div>
-
             {/* Лейбл для textarea */}
             <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-4">
               Опишите проблему
             </div>
-
             {/* Textarea */}
             <div className="relative w-full mt-1">
               <textarea
                 placeholder="Введите ваш текст"
-                className="text-[#36394A] w-full min-h-[110px]  py-2 px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
+                className="text-[#36394A] w-full min-h-[110px] pb-2 pt-[7px] px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
                 maxLength={200}
                 style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 value={textareaValue}
@@ -182,6 +195,42 @@ export default function ProductListToolbar() {
                   {textareaValue.length}/200
                 </span>
               </div>
+            </div>
+            {/* Лейбл для блока загрузки */}
+            <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-[10px]">
+              Доказательства
+            </div>
+            {/* Блок загрузки файлов */}
+            <div className="flex px-[27px] py-[15px] flex-col justify-center items-center gap-3 self-stretch rounded-lg border border-dashed border-[#9E9DA4] mt-1">
+              <Image
+                src="/upload-cloud.svg"
+                alt="Upload"
+                width={24}
+                height={24}
+              />
+
+              {/* Блок с текстом */}
+              <div className="flex flex-col items-center gap-1 self-stretch">
+                <span className="text-[#36394A] text-center font-[Inter] text-base not-italic font-medium leading-6">
+                  Выберите файл или перетащите его сюда
+                </span>
+                <span className="text-[#6E7076] text-center font-[Inter] text-sm not-italic font-normal leading-5">
+                  JPEG или PNG до 5 MB
+                </span>
+              </div>
+            </div>
+            {/* Блок с кнопками */}
+            <div className="flex gap-2 mt-5">
+              <button className="flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg bg-[linear-gradient(180deg,rgba(255,255,255,0.00)_0%,rgba(193,199,208,0.02)_100%),#FFF] shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)]">
+                <span className="text-[#36394A] text-center font-[Inter] text-base not-italic font-medium leading-6">
+                  Мне нужна поддержка
+                </span>
+              </button>
+              <button className="flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg border border-[#6385FF] bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2]">
+                <span className="text-white text-center font-[Inter] text-base not-italic font-medium leading-6">
+                  Пожаловаться
+                </span>
+              </button>
             </div>
           </div>
         </div>

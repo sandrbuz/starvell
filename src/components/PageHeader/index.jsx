@@ -47,7 +47,7 @@ export default function PageHeader() {
         связанный с SEO-оптимизацией относительно данной категории, на которую
         вы сейчас смотрите.
       </p>
-      <div className="flex flex-wrap gap-2 my-6">
+      <div className="flex flex-wrap gap-2  mt-6 mb-[23px]">
         {categories.map((category) => {
           const isSelected = category.name === selectedCategory;
           return (
