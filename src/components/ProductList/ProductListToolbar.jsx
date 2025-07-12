@@ -7,6 +7,7 @@ export default function ProductListToolbar() {
   const [activeTab, setActiveTab] = useState("Все");
   const [isOnlineOnly, setIsOnlineOnly] = useState(false);
   const [isInstantDelivery, setIsInstantDelivery] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const [tabs, setTabs] = useState([
     { label: "Все" },
@@ -65,7 +66,10 @@ export default function ProductListToolbar() {
           </div>
         </div>
 
-        <button className="inline-flex px-4 py-2 justify-center items-center gap-1.5 rounded-lg bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF]">
+        <button
+          className="inline-flex px-4 py-2 justify-center items-center gap-1.5 rounded-lg bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF]"
+          onClick={() => setIsPopupOpen(true)}
+        >
           <span className="text-white text-center  text-sm not-italic font-medium leading-5">
             Продать Blox Fruits
           </span>
@@ -119,6 +123,45 @@ export default function ProductListToolbar() {
           <Image src="/search.svg" alt="Search" width={16} height={16} />
         </div>
       </div>
+
+      {/* Popup */}
+      {isPopupOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.24)",
+            backdropFilter: "blur(2px)",
+          }}
+          onClick={() => setIsPopupOpen(false)}
+        >
+          <div
+            className="pt-[23px] pl-[22px] pr-[22px] bg-white w-[488px]  rounded-2xl border border-[#E8EBF0] shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Содержимое popup */}
+            <h1 className="text-[#36394A] font-[Inter] text-xl not-italic font-semibold leading-7">
+              Жалоба на 0xHearts.com
+            </h1>
+            {/* Лейбл */}
+            <div className="w-[269px] flex-shrink-0 text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-6">
+              Причина жалобы
+            </div>
+            {/* Селект */}
+            <div className="flex w-full px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0] mt-1">
+              <span className="w-[392px] flex-shrink-0 text-[#9E9DA4] font-[Inter] text-base not-italic font-normal leading-6">
+                Выберите причину жалобы
+              </span>
+              <Image
+                src="/chevron.svg"
+                alt="Dropdown"
+                width={17}
+                height={16}
+                className="w-[17px] h-4"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
