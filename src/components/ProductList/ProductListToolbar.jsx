@@ -8,6 +8,7 @@ export default function ProductListToolbar() {
   const [isOnlineOnly, setIsOnlineOnly] = useState(false);
   const [isInstantDelivery, setIsInstantDelivery] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [textareaValue, setTextareaValue] = useState("");
 
   const [tabs, setTabs] = useState([
     { label: "Все" },
@@ -172,11 +173,13 @@ export default function ProductListToolbar() {
                 className="text-[#36394A] w-full min-h-[110px]  py-2 px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
                 maxLength={200}
                 style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                value={textareaValue}
+                onChange={(e) => setTextareaValue(e.target.value)}
               />
               {/* Счетчик */}
               <div className="absolute bottom-2 right-2.5 mb-1 mr-4">
                 <span className="text-[#9E9DA4] text-right font-[Inter] text-xs not-italic font-medium leading-[18px] tracking-[0.24px] uppercase">
-                  0/200
+                  {textareaValue.length}/200
                 </span>
               </div>
             </div>
