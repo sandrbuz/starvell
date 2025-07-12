@@ -159,6 +159,27 @@ export default function ProductListToolbar() {
                 className="w-[17px] h-4"
               />
             </div>
+
+            {/* Лейбл для textarea */}
+            <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-4">
+              Опишите проблему
+            </div>
+
+            {/* Textarea */}
+            <div className="relative w-full mt-1">
+              <textarea
+                placeholder="Введите ваш текст"
+                className="text-[#36394A] w-full min-h-[110px]  py-2 px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
+                maxLength={200}
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              />
+              {/* Счетчик */}
+              <div className="absolute bottom-2 right-2.5 mb-1 mr-4">
+                <span className="text-[#9E9DA4] text-right font-[Inter] text-xs not-italic font-medium leading-[18px] tracking-[0.24px] uppercase">
+                  0/200
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       )}
