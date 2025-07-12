@@ -1,0 +1,73 @@
+"use client";
+
+import { useState } from "react";
+
+export default function ProductListToolbar() {
+  const [activeTab, setActiveTab] = useState("Все");
+
+  const [tabs, setTabs] = useState([
+    { label: "Все" },
+    { label: "Бели" },
+    { label: "Аккаунты" },
+    { label: "Предметы" },
+    { label: "VIP-сервер" },
+    { label: "Услуги" },
+    { label: "Гайды" },
+  ]);
+
+  return (
+    <div className="font-[Inter]">
+      {/* верхний блок с табами и кнопкой*/}
+      <div className="flex justify-between items-center">
+        <div className="flex gap-1">
+          {tabs.map((tab, idx) => (
+            <button
+              key={idx}
+              className={`inline-flex h-9 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg ${
+                tab.label === activeTab
+                  ? "bg-[#5C80FD]"
+                  : "bg-[rgba(92,128,253,0.08)]"
+              }`}
+              onClick={() => setActiveTab(tab.label)}
+            >
+              <span
+                className={`text-center font-[Inter] text-sm not-italic font-medium leading-5 ${
+                  tab.label === activeTab ? "text-white" : "text-[#5C80FD]"
+                }`}
+              >
+                {tab.label}
+              </span>
+            </button>
+          ))}
+          {/* Селект способ доставки */}
+          <div className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0]">
+            <span className="text-[#36394A] font-[Inter] text-sm not-italic font-normal leading-5">
+              Способ доставки
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M5.11988 6.56006L7.99988 9.44006L10.8799 6.56006"
+                stroke="#666D80"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <button className="inline-flex px-4 py-2 justify-center items-center gap-1.5 rounded-lg bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF]">
+          <span className="text-white text-center  text-sm not-italic font-medium leading-5">
+            Продать Blox Fruits
+          </span>
+        </button>
+      </div>
+    </div>
+  );
+}

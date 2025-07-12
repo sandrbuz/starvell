@@ -19,8 +19,8 @@ export default function Home() {
       <div className=" flex flex-col">
         <PageHeader />
         <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0" />
-        {/* <ProductList /> */}
-        <InfoSection />
+        <ProductList />
+        {/* <InfoSection /> */}
       </div>
     </div>
   );
