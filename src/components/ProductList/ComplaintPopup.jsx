@@ -168,12 +168,12 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         </div>
         {/* Блок с кнопками */}
         <div className="flex gap-2 mt-5">
-          <button className="flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg bg-[linear-gradient(180deg,rgba(255,255,255,0.00)_0%,rgba(193,199,208,0.02)_100%),#FFF] shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)]">
-            <span className="text-[#36394A] text-center font-[Inter] text-base not-italic font-medium leading-6">
+          <button className="group flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)] hover:bg-[#FAFAFA] active:bg-white active:shadow-[0px_1px_2px_0px_rgba(164,172,185,0.16),0px_0px_0px_1px_rgba(18,55,105,0.05)]">
+            <span className="text-[#36394A] group-active:text-[#AFB0B7] text-center font-[Inter] text-base not-italic font-medium leading-6">
               Мне нужна поддержка
             </span>
           </button>
-          <button className="flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg border border-[#6385FF] bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2]">
+          <button className="flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg border border-[#6385FF] bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] hover:bg-[#2850DC] active:bg-[#B9C8FF] active:border-[#B5C1ED] active:shadow-[0px_1px_2px_0px_rgba(192,206,255,0.50),0px_0px_0px_1px_#C0CEFF]">
             <span className="text-white text-center font-[Inter] text-base not-italic font-medium leading-6">
               Пожаловаться
             </span>

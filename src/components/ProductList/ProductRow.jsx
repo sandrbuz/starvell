@@ -43,8 +43,8 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
     >
       {/* Описание */}
       <td ref={descriptionRef} className="align-middle">
-        <div className="text-sm min-h-[59px] pr-6 line-clamp-2 py-2">
-          <div className="description-text w-[616px] text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6">
+        <div className="text-sm min-h-[59px] pr-6 py-2 overflow-hidden">
+          <div className="description-text w-[616px] text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6 line-clamp-2">
             {product.description}
           </div>
         </div>
