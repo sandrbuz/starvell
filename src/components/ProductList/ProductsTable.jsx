@@ -1,9 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 export default function ProductsTable() {
+  const descriptionRefs = useRef([]);
+
+  useEffect(() => {
+    descriptionRefs.current.forEach((tdRef) => {
+      if (tdRef) {
+        const descriptionDiv = tdRef.querySelector(".description-text");
+        if (descriptionDiv) {
+          const lineHeight = 24; // фиксировано из leading-6
+          if (descriptionDiv.scrollHeight > lineHeight * 1.5) {
+            tdRef.style.height = "80px";
+          }
+        }
+      }
+    });
+  }, []);
   const [products1, setProducts1] = useState([
     {
       description: "🤑🔥🕘Аренда Вип Сервера | 24 часа🕒🔥🤑, VIP-сервер",
@@ -49,7 +64,7 @@ export default function ProductsTable() {
   const products = [
     {
       id: 1,
-      description: "🔥🎯Аренда Вип Сервера | 24 часа🔥🎯, VIP-сервер",
+      description: "🤑🔥🕘Аренда Вип Сервера | 24 часа🕒🔥🤑, VIP-сервер",
       seller: "0xHearts.com",
       stock: "322",
       price: "0.64 ₽",
@@ -57,7 +72,7 @@ export default function ProductsTable() {
     {
       id: 2,
       description:
-        "🌟ФРУКТ СПИРИТ, СПИРИТ, БЛОКС ФРУКТ, SPIRIT🌟🎯, Предметы, Трейд",
+        "❤ФРУКТ СПИРИТ, СПИРИТ, БЛОКС ФРУКТ, SPIRIT💛💢, Предметы, Трейд",
       seller: "IgorDunʼdenkoff",
       stock: "∞",
       price: "0.63 ₽",
@@ -65,7 +80,97 @@ export default function ProductsTable() {
     {
       id: 3,
       description:
-        "😺Куплю и продаю рейд БУДДЫ - БУДДА РЕЙД - БУДА - место будды - Рейды буды - BUDDHA RAID😺🎯, Услуги",
+        "🤲Куплю и пройду рейд БУДДЫ - БУДДА РЕЙД - БУДА - место будды - Рейды буды - BUDDHA RAID - 🤲, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 4,
+      description:
+        "🍩 / Рейд Теста - Куплю и пройду рейд Теста - РЕЙДЫ ТЕСТА - МЕСТО ТЕСТА - ДОУЧ - 🍩, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 5,
+      description: "🟦Rumble Fruit🟦Фрукт Грохот, Предметы, Трейд",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 6,
+      description: "🐘 Фрукт Мамонта 🐘 Мамонт/Mammoth 🐘, Предметы, Трейд",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 7,
+      description: "💛Фрукт Будда 💛 🟡Buddha Fruit🟡, Предметы, Трейд",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 8,
+      description: "💛Фрукт Будда 💛 🟡Buddha Fruit🟡, Предметы, Трейд",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 9,
+      description:
+        "🔑👑 Заспавню и убью катакури в2 / Получение рейда теста / миррор фрактал / зеркальный фрактал /👑🔑, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 10,
+      description:
+        "⚔️ КУПЛЮ И ПРОЙДУ ЛО - БОСС ЛО - ЛО - РЕЙД ЛО - ЧИП ЛО - БУСТ - RAID LO - LO - ⚔️, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 11,
+      description:
+        "🔑👑 Заспавню и убью катакури в2 / Получение рейда теста / миррор фрактал / зеркальный фрактал /👑🔑, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 12,
+      description:
+        "🔑👑 Заспавню и убью катакури в2 / Получение рейда теста / миррор фрактал / зеркальный фрактал /👑🔑, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 13,
+      description: "Вандо, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 14,
+      description: "✨🍀Прокачка LvL цена за 1 уровень🍀✨, Услуги",
+      seller: "Dendi",
+      stock: "4 556",
+      price: "0.60 ₽",
+    },
+    {
+      id: 15,
+      description:
+        "💝Набор 3 в 1 Покупка Легендарных мечей 💝 wando / shisui / saddi / ТТК / TTK / Вандо / Шисуи/ Садди, Услуги",
       seller: "Dendi",
       stock: "4 556",
       price: "0.60 ₽",
@@ -75,7 +180,7 @@ export default function ProductsTable() {
   return (
     <div className="mt-[31px] font-[Inter]">
       {/* Заголовки таблицы */}
-      <div className="flex mb-3 gap-6">
+      <div className="flex mb-1 gap-6">
         <div className="w-[616px] text-[#6E7076] font-[Inter] text-sm font-normal not-italic leading-5">
           Описание
         </div>
@@ -96,41 +201,57 @@ export default function ProductsTable() {
         </div>
       </div>
 
-      {/* Строки таблицы */}
-      <div className="bg-white rounded-lg">
-        {products.map((product, index) => (
-          <div
-            key={product.id}
-            className={`flex items-center h-[60px] ${
-              index !== products.length - 1 ? "border-b border-gray-200" : ""
-            }`}
-          >
-            {/* Описание */}
-            <div className="w-[616px] px-4">
-              <div className="text-sm text-gray-900 line-clamp-2">
-                {product.description}
-              </div>
-            </div>
+      {/* Таблица */}
+      <table
+        className="bg-white rounded-lg mt-1"
+        style={{ width: "1128px", tableLayout: "fixed" }}
+      >
+        <colgroup>
+          <col style={{ width: "640px" }} />
+          <col style={{ width: "256px" }} />
+          <col style={{ width: "104px" }} />
+          <col style={{ width: "128px" }} />
+        </colgroup>
+        <tbody>
+          {products.map((product, index) => (
+            <tr
+              key={product.id}
+              className={`h-[76px] ${
+                index !== products.length - 1 ? "border-b border-gray-200" : ""
+              }`}
+            >
+              {/* Описание */}
+              <td
+                ref={(el) => (descriptionRefs.current[index] = el)}
+                className="align-middle "
+              >
+                <div className="text-sm min-h-[59px] line-clamp-2">
+                  <div className="description-text w-[616px] text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6">
+                    {product.description}
+                  </div>
+                </div>
+              </td>
 
-            {/* Продавец */}
-            <div className="w-[232px] px-4">
-              <div className="text-sm text-gray-900">{product.seller}</div>
-            </div>
+              {/* Продавец */}
+              <td className="align-middle">
+                <div className="text-sm min-h-[59px] py-2">
+                  {product.seller}
+                </div>
+              </td>
 
-            {/* Наличие */}
-            <div className="w-[104px] px-4">
-              <div className="text-sm text-gray-900">{product.stock}</div>
-            </div>
+              {/* Наличие */}
+              <td className="align-middle text-right">
+                <div className="text-sm min-h-[59px] py-2">{product.stock}</div>
+              </td>
 
-            {/* Цена */}
-            <div className="w-[104px] px-4">
-              <div className="text-sm text-gray-900 font-medium">
-                {product.price}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+              {/* Цена */}
+              <td className="align-middle text-right">
+                <div className="text-sm min-h-[59px] py-2">{product.price}</div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
