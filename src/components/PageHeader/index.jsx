@@ -57,7 +57,7 @@ export default function PageHeader() {
                 ${
                   isSelected
                     ? "bg-[#5C80FD] text-white"
-                    : "bg-[rgba(92,128,253,0.08)] text-[#5C80FD]"
+                    : "bg-[#F2F5FF] text-[#5C80FD]"
                 }
               `}
             >

@@ -20,7 +20,9 @@ export default function Home() {
         <PageHeader />
         <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0" />
         <ProductList />
-        {/* <InfoSection /> */}
+        <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0 mt-[39px]" />
+
+        <InfoSection />
       </div>
     </div>
   );
