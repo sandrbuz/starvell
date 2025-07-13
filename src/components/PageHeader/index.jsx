@@ -24,7 +24,7 @@ export default function PageHeader() {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`flex h-8 px-3 py-1 justify-center items-center gap-1.5 rounded-md transition-colors duration-150 hover:bg-[#DEE6FF] active:bg-[#BECCFE] active:text-white
+              className={`cursor-pointer flex h-8 px-3 py-1 justify-center items-center gap-1.5 rounded-md transition-colors duration-150 hover:bg-[#DEE6FF] active:bg-[#BECCFE] active:text-white
                 ${
                   isSelected
                     ? "bg-[#5C80FD] text-white hover:bg-[#DEE6FF] hover:text-[#5C80FD] active:bg-[#BECCFE] active:text-white"

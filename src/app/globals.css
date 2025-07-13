@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+button {
+  transition: all 0.2s ease;
+}
+
+tr {
+  transition: all 0.2s ease;
+}
+
+.popup-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.popup-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  transform: translateY(-20px);
+  transition: transform 0.2s ease;
+}
+
+.popup-overlay.show .popup-content {
+  transform: translateY(0);
+}
+
 body {
   font-family: "Inter", sans-serif;
   background-color: #f7f7f7;

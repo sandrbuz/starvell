@@ -34,7 +34,7 @@ export default function ProductListHeader({
         {tabs.map((tab, idx) => (
           <button
             key={tab.id}
-            className={`inline-flex h-9 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-md hover:bg-[#DEE6FF] active:bg-[#BECCFE] active:text-white ${
+            className={`cursor-pointer inline-flex h-9 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-md hover:bg-[#DEE6FF] active:bg-[#BECCFE] active:text-white ${
               tab.id === activeTab
                 ? "bg-[#5C80FD] text-white hover:bg-[#DEE6FF] hover:text-[#5C80FD] active:bg-[#BECCFE] active:text-white"
                 : "bg-[#F2F5FF] text-[#5C80FD] active:text-white"

@@ -30,23 +30,23 @@ export default function ComplaintPopup({ isOpen, onClose }) {
     }
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center z-50"
+      className={`fixed inset-0 flex items-center justify-center z-50 popup-overlay ${
+        isOpen ? "show" : ""
+      }`}
       style={{
         backgroundColor: "rgba(0, 0, 0, 0.24)",
         backdropFilter: "blur(2px)",
       }}
-      onClick={onClose}
+      onClick={isOpen ? onClose : undefined}
     >
       <div
-        className="pt-[24px] pl-[23px] pb-[22px] pr-[23px] bg-white w-[488px] rounded-2xl border border-[#E8EBF0] shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] relative"
+        className="popup-content pt-[24px] pl-[23px] pb-[22px] pr-[23px] bg-white w-[488px] rounded-2xl border border-[#E8EBF0] shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center"
+          className="absolute w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center cursor-pointer"
           style={{ top: "-0.05rem", right: "-4.1rem" }}
           onClick={onClose}
         >
@@ -151,12 +151,12 @@ export default function ComplaintPopup({ isOpen, onClose }) {
           </div>
         </div>
         <div className="flex gap-2 mt-5">
-          <button className="group flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)] hover:bg-[#FAFAFA] active:bg-white active:shadow-[0px_1px_2px_0px_rgba(164,172,185,0.16),0px_0px_0px_1px_rgba(18,55,105,0.05)]">
+          <button className="cursor-pointer group flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)] hover:bg-[#FAFAFA] active:bg-white active:shadow-[0px_1px_2px_0px_rgba(164,172,185,0.16),0px_0px_0px_1px_rgba(18,55,105,0.05)]">
             <span className="text-[#36394A] group-active:text-[#AFB0B7] text-center text-base not-italic font-medium leading-6">
               Мне нужна поддержка
             </span>
           </button>
-          <button className="flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg border border-[#6385FF] bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] hover:bg-[#2850DC] active:bg-[#B9C8FF] active:border-[#B5C1ED] active:shadow-[0px_1px_2px_0px_rgba(192,206,255,0.50),0px_0px_0px_1px_#C0CEFF]">
+          <button className="cursor-pointer flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg border border-[#6385FF] bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] hover:bg-[#2850DC] active:bg-[#B9C8FF] active:border-[#B5C1ED] active:shadow-[0px_1px_2px_0px_rgba(192,206,255,0.50),0px_0px_0px_1px_#C0CEFF]">
             <span className="text-white text-center text-base not-italic font-medium leading-6">
               Пожаловаться
             </span>
