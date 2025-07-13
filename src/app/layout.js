@@ -10,6 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="stylesheet" href="/fonts/inter.css" />
+        <link rel="icon" href="/starvell.svg" type="image/svg+xml" />
       </head>
       <body>{children}</body>
     </html>
