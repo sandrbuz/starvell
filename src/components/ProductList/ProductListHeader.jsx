@@ -41,7 +41,7 @@ export default function ProductListHeader({
             }`}
             onClick={() => setActiveTab(tab.id)}
           >
-            <span className="text-center text-sm not-italic font-medium leading-5">
+            <span className="text-center text-sm not-italic font-medium leading-5 mr-[1px]">
               {tab.label}
             </span>
           </button>

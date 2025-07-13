@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-[1256px]  border border-[#E8EBF0] bg-white rounded-2xl py-10 px-16 relative my-6">
+    <div className="w-[1256px]  border border-[#E8EBF0] bg-white rounded-2xl py-10 pl-[62px] pr-[64px] relative my-6">
       <Image
         src="/roblox-avatar.png"
         alt="Roblox character"
@@ -18,7 +18,7 @@ export default function Home() {
         <PageHeader />
         <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0" />
         <ProductList />
-        <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0 mt-[39px]" />
+        <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0 mt-[42px]" />
 
         <InfoSection />
       </div>

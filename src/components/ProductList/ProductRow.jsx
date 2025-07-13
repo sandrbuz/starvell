@@ -24,9 +24,9 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
           <Image
             src={product.seller.avatar}
             alt="avatar"
-            width={28}
-            height={28}
-            className="h-7 w-7"
+            width={30}
+            height={30}
+            className="h-[30px] w-[30px]"
           />
           <div className="flex flex-col">
             <div className="flex gap-1 items-center">

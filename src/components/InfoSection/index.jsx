@@ -30,11 +30,12 @@ export default function InfoSection() {
           них в любое время суток!
         </p>
       </div>
-      <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-5">
-        <h1 className="text-[#6E7076] text-base not-italic font-medium leading-6">
+
+      <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-6">
+        <h1 className="text-[#6E7076] text-base not-italic font-medium leading-none">
           Как купить
         </h1>
-        <p>
+        <p className="mt-1">
           Покупка робуксов осуществляется просто, как мы писали выше, нужно
           сделать всего три действия:
         </p>
@@ -55,6 +56,7 @@ export default function InfoSection() {
           заказа.
         </p>
       </div>
+
       <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-5">
         <h1 className="text-[#6E7076] text-base not-italic font-medium leading-6">
           Продавцам
