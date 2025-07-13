@@ -1,37 +1,5 @@
 import Image from "next/image";
-
-// Функция для определения иконки звездочки по рейтингу
-function getStarIcon(rating) {
-  const numRating = parseFloat(rating);
-  if (numRating >= 5.0) return "/star-green.svg";
-  if (numRating >= 4.0) return "/star-yellow.svg";
-  if (numRating >= 3.0) return "/star-orange.svg";
-  return "/star-red.svg";
-}
-
-// Функция для определения стилей блока рейтинга
-function getRatingStyles(rating) {
-  const numRating = parseFloat(rating);
-  if (numRating >= 5.0)
-    return {
-      backgroundColor: "rgba(29, 180, 98, 0.08)",
-      color: "#1DB462",
-    };
-  if (numRating >= 4.0)
-    return {
-      backgroundColor: "rgba(255, 229, 0, 0.08)",
-      color: "#E1B000",
-    };
-  if (numRating >= 3.0)
-    return {
-      backgroundColor: "rgba(255, 142, 38, 0.08)",
-      color: "#FF8E26",
-    };
-  return {
-    backgroundColor: "rgba(255, 92, 92, 0.08)",
-    color: "#FF5C5C",
-  };
-}
+import { getStarIcon, getRatingStyles } from "../utils";
 
 export default function ProductRow({ product, index, descriptionRef, isLast }) {
   return (
@@ -98,7 +66,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
       {/* Цена */}
       <td className="align-middle text-right">
         <div className=" min-h-[59px] py-2 flex flex-col gap-1">
-          <div className=" text-[#36394A] text-right text-base not-italic font-semibold leading-6">
+          <div className="pr-[2px] text-[#36394A] text-right text-base not-italic font-semibold leading-6">
             {product.price} ₽
           </div>
           {product.withIcons && (

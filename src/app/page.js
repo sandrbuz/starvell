@@ -5,7 +5,6 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    // main container
     <div className="w-[1256px]  border border-[#E8EBF0] bg-white rounded-2xl py-10 px-16 relative my-6">
       <Image
         src="/roblox-avatar.png"
@@ -15,7 +14,6 @@ export default function Home() {
         className="absolute top-0 right-0 object-contain"
       />
 
-      {/* child container*/}
       <div className=" flex flex-col">
         <PageHeader />
         <hr className="h-px w-full bg-[#E8EBF0] border-0 m-0 p-0" />
