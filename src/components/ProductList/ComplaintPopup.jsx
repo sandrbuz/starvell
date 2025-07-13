@@ -46,8 +46,8 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute -right-16.5 w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center"
-          style={{ top: "-0.05rem" }}
+          className="absolute w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center"
+          style={{ top: "-0.05rem", right: "-4.1rem" }}
           onClick={onClose}
         >
           <Image
