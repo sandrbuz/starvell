@@ -1,7 +1,7 @@
 export default function InfoSection() {
   return (
     <div className="w-[1128px] mt-6">
-      <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5">
+      <div className="text-[#6E7076] text-sm not-italic font-normal leading-5">
         <p>
           Робуксы — это валюта платформы мини игр Roblox, обеспечивающая
           комфортный геймплей и расширенные возможности для игрока. Что
@@ -30,8 +30,8 @@ export default function InfoSection() {
           них в любое время суток!
         </p>
       </div>
-      <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-5">
-        <h1 className="text-[#6E7076] font-[Inter] text-base not-italic font-medium leading-6">
+      <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-5">
+        <h1 className="text-[#6E7076] text-base not-italic font-medium leading-6">
           Как купить
         </h1>
         <p>
@@ -55,8 +55,8 @@ export default function InfoSection() {
           заказа.
         </p>
       </div>
-      <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-5">
-        <h1 className="text-[#6E7076] font-[Inter] text-base not-italic font-medium leading-6">
+      <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-5">
+        <h1 className="text-[#6E7076] text-base not-italic font-medium leading-6">
           Продавцам
         </h1>
         <p>

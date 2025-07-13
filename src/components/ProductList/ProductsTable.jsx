@@ -248,23 +248,23 @@ export default function ProductsTable() {
   }, []);
 
   return (
-    <div className="mt-[31px] font-[Inter]">
+    <div className="mt-[31px]">
       {/* Заголовки таблицы */}
       <div className="flex mb-1 gap-6">
-        <div className="w-[616px] text-[#6E7076] font-[Inter] text-sm font-normal not-italic leading-5">
+        <div className="w-[616px] text-[#6E7076] text-sm font-normal not-italic leading-5">
           Описание
         </div>
-        <div className="w-[232px] text-[#6E7076] font-[Inter] text-sm font-normal not-italic leading-5">
+        <div className="w-[232px] text-[#6E7076] text-sm font-normal not-italic leading-5">
           Продавец
         </div>
         <div className="w-[104px] flex justify-end items-center gap-1">
-          <span className="text-[#6E7076] text-right font-[Inter] text-sm not-italic font-normal leading-5">
+          <span className="text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
             Наличие
           </span>
           <Image src="/icon-sort.svg" alt="sort" width={12} height={12} />
         </div>
         <div className="w-[104px] flex justify-end items-center gap-1">
-          <span className="text-[#6E7076] text-right font-[Inter] text-sm not-italic font-normal leading-5">
+          <span className="text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
             Цена
           </span>
           <Image src="/icon-sort.svg" alt="sort" width={12} height={12} />

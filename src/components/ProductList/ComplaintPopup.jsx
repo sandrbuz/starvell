@@ -63,11 +63,11 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         </button>
 
         {/* Содержимое popup */}
-        <h1 className="text-[#36394A] font-[Inter] text-xl not-italic font-semibold leading-7">
+        <h1 className="text-[#36394A] text-xl not-italic font-semibold leading-7">
           Жалоба на 0xHearts.com
         </h1>
         {/* Лейбл */}
-        <div className="w-[269px] flex-shrink-0 text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-6">
+        <div className="w-[269px] flex-shrink-0 text-[#6E7076] text-sm not-italic font-normal leading-5 mt-6">
           Причина жалобы
         </div>
         {/* Селект */}
@@ -81,7 +81,7 @@ export default function ComplaintPopup({ isOpen, onClose }) {
             onClick={() => setIsComplaintDropdownOpen(!isComplaintDropdownOpen)}
           >
             <span
-              className={`flex-1 font-[Inter] text-base not-italic font-normal leading-6 ${
+              className={`flex-1 text-base not-italic font-normal leading-6 ${
                 isComplaintDropdownOpen ? "text-[#9E9DA4]" : "text-[#9E9DA4]"
               }`}
             >
@@ -112,7 +112,7 @@ export default function ComplaintPopup({ isOpen, onClose }) {
                       }}
                     >
                       <span
-                        className="text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6"
+                        className="text-[#36394A] text-base not-italic font-normal leading-6"
                         style={{
                           fontFeatureSettings:
                             "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
@@ -128,14 +128,14 @@ export default function ComplaintPopup({ isOpen, onClose }) {
           )}
         </div>
         {/* Лейбл для textarea */}
-        <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-4">
+        <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-4">
           Опишите проблему
         </div>
         {/* Textarea */}
         <div className="relative w-full mt-1">
           <textarea
             placeholder="Введите ваш текст"
-            className="text-[#36394A] w-full min-h-[110px] pb-2 pt-[7px] px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] font-[Inter] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
+            className="text-[#36394A] w-full min-h-[110px] pb-2 pt-[7px] px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
             maxLength={200}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             value={textareaValue}
@@ -143,13 +143,13 @@ export default function ComplaintPopup({ isOpen, onClose }) {
           />
           {/* Счетчик */}
           <div className="absolute bottom-2 right-2.5 mb-1 mr-4">
-            <span className="text-[#9E9DA4] text-right font-[Inter] text-xs not-italic font-medium leading-[18px] tracking-[0.24px] uppercase">
+            <span className="text-[#9E9DA4] text-right text-xs not-italic font-medium leading-[18px] tracking-[0.24px] uppercase">
               {textareaValue.length}/200
             </span>
           </div>
         </div>
         {/* Лейбл для блока загрузки */}
-        <div className="text-[#6E7076] font-[Inter] text-sm not-italic font-normal leading-5 mt-[10px]">
+        <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-[10px]">
           Доказательства
         </div>
         {/* Блок загрузки файлов */}
@@ -158,10 +158,10 @@ export default function ComplaintPopup({ isOpen, onClose }) {
 
           {/* Блок с текстом */}
           <div className="flex flex-col items-center gap-1 self-stretch">
-            <span className="text-[#36394A] text-center font-[Inter] text-base not-italic font-medium leading-6">
+            <span className="text-[#36394A] text-center text-base not-italic font-medium leading-6">
               Выберите файл или перетащите его сюда
             </span>
-            <span className="text-[#6E7076] text-center font-[Inter] text-sm not-italic font-normal leading-5">
+            <span className="text-[#6E7076] text-center text-sm not-italic font-normal leading-5">
               JPEG или PNG до 5 MB
             </span>
           </div>
@@ -169,12 +169,12 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         {/* Блок с кнопками */}
         <div className="flex gap-2 mt-5">
           <button className="group flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)] hover:bg-[#FAFAFA] active:bg-white active:shadow-[0px_1px_2px_0px_rgba(164,172,185,0.16),0px_0px_0px_1px_rgba(18,55,105,0.05)]">
-            <span className="text-[#36394A] group-active:text-[#AFB0B7] text-center font-[Inter] text-base not-italic font-medium leading-6">
+            <span className="text-[#36394A] group-active:text-[#AFB0B7] text-center text-base not-italic font-medium leading-6">
               Мне нужна поддержка
             </span>
           </button>
           <button className="flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg border border-[#6385FF] bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] hover:bg-[#2850DC] active:bg-[#B9C8FF] active:border-[#B5C1ED] active:shadow-[0px_1px_2px_0px_rgba(192,206,255,0.50),0px_0px_0px_1px_#C0CEFF]">
-            <span className="text-white text-center font-[Inter] text-base not-italic font-medium leading-6">
+            <span className="text-white text-center text-base not-italic font-medium leading-6">
               Пожаловаться
             </span>
           </button>

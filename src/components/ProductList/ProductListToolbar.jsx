@@ -40,7 +40,7 @@ export default function ProductListToolbar() {
   ]);
 
   return (
-    <div className="font-[Inter]">
+    <div>
       {/* верхний блок с табами и кнопкой*/}
       <div className="flex justify-between items-center">
         <div className="flex gap-1">
@@ -54,7 +54,7 @@ export default function ProductListToolbar() {
               }`}
               onClick={() => setActiveTab(tab.id)}
             >
-              <span className="text-center font-[Inter] text-sm not-italic font-medium leading-5">
+              <span className="text-center text-sm not-italic font-medium leading-5">
                 {tab.label}
               </span>
             </button>
@@ -71,7 +71,7 @@ export default function ProductListToolbar() {
               onClick={() => setIsDeliveryDropdownOpen(!isDeliveryDropdownOpen)}
             >
               <span
-                className={`font-[Inter] text-sm not-italic font-normal leading-5 flex-1 ${
+                className={`text-sm not-italic font-normal leading-5 flex-1 ${
                   isDeliveryDropdownOpen ? "text-[#9E9DA4]" : "text-[#36394A]"
                 }`}
               >
@@ -102,7 +102,7 @@ export default function ProductListToolbar() {
                         }}
                       >
                         <span
-                          className="text-[#36394A] font-[Inter] text-sm not-italic font-normal leading-5"
+                          className="text-[#36394A] text-sm not-italic font-normal leading-5"
                           style={{
                             fontFeatureSettings:
                               "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
@@ -132,7 +132,7 @@ export default function ProductListToolbar() {
       {/* нижний блок с чекбоксами и инпутом*/}
       <div className="flex gap-1 mt-[7px]">
         <div className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0]">
-          <span className="text-[#36394A] font-[Inter] text-sm not-italic font-normal leading-5">
+          <span className="text-[#36394A] text-sm not-italic font-normal leading-5">
             Только продавцы онлайн
           </span>
           <div
@@ -150,7 +150,7 @@ export default function ProductListToolbar() {
         </div>
         <div className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0]">
           <Image src="/lightning.svg" alt="Lightning" width={12} height={12} />
-          <span className="text-[#36394A] font-[Inter] text-sm not-italic font-normal leading-5">
+          <span className="text-[#36394A] text-sm not-italic font-normal leading-5">
             Моментальная доставка
           </span>
           <div
@@ -172,7 +172,7 @@ export default function ProductListToolbar() {
           <input
             type="text"
             placeholder="Поиск по описанию лота..."
-            className="flex-1 text-[#36394A] font-[Inter] text-sm not-italic font-normal leading-5 bg-transparent border-none outline-none placeholder:text-[#9E9DA4]"
+            className="flex-1 text-[#36394A] text-sm not-italic font-normal leading-5 bg-transparent border-none outline-none placeholder:text-[#9E9DA4]"
           />
           <Image src="/search.svg" alt="Search" width={16} height={16} />
         </div>
