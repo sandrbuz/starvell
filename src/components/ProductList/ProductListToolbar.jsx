@@ -4,20 +4,20 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function ProductListToolbar() {
-  const [activeTab, setActiveTab] = useState("Все");
+  const [activeTab, setActiveTab] = useState("all");
   const [isOnlineOnly, setIsOnlineOnly] = useState(false);
   const [isInstantDelivery, setIsInstantDelivery] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [textareaValue, setTextareaValue] = useState("");
 
   const [tabs, setTabs] = useState([
-    { label: "Все" },
-    { label: "Бели" },
-    { label: "Аккаунты" },
-    { label: "Предметы" },
-    { label: "VIP-сервер" },
-    { label: "Услуги" },
-    { label: "Гайды" },
+    { id: "all", label: "Все" },
+    { id: "beli", label: "Бели" },
+    { id: "accounts", label: "Аккаунты" },
+    { id: "items", label: "Предметы" },
+    { id: "vip-server", label: "VIP-сервер" },
+    { id: "services", label: "Услуги" },
+    { id: "guides", label: "Гайды" },
   ]);
 
   return (
@@ -27,19 +27,15 @@ export default function ProductListToolbar() {
         <div className="flex gap-1">
           {tabs.map((tab, idx) => (
             <button
-              key={idx}
-              className={`inline-flex h-9 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-md ${
-                tab.label === activeTab
-                  ? "bg-[#5C80FD]"
-                  : "bg-[rgba(92,128,253,0.08)]"
+              key={tab.id}
+              className={`inline-flex h-9 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-md hover:bg-[#DEE6FF] active:bg-[#BECCFE] active:text-white ${
+                tab.id === activeTab
+                  ? "bg-[#5C80FD] text-white hover:bg-[#DEE6FF] hover:text-[#5C80FD] active:bg-[#BECCFE] active:text-white"
+                  : "bg-[#F2F5FF] text-[#5C80FD] active:text-white"
               }`}
-              onClick={() => setActiveTab(tab.label)}
+              onClick={() => setActiveTab(tab.id)}
             >
-              <span
-                className={`text-center font-[Inter] text-sm not-italic font-medium leading-5 ${
-                  tab.label === activeTab ? "text-white" : "text-[#5C80FD]"
-                }`}
-              >
+              <span className="text-center font-[Inter] text-sm not-italic font-medium leading-5">
                 {tab.label}
               </span>
             </button>
@@ -68,7 +64,7 @@ export default function ProductListToolbar() {
         </div>
 
         <button
-          className="cursor-pointer inline-flex px-4 py-[7px] justify-center items-center gap-1.5 rounded-lg bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF]"
+          className="cursor-pointer inline-flex px-4 py-[7px] justify-center items-center gap-1.5 rounded-lg bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF] hover:bg-[#2850DC] active:bg-[#B9C8FF] active:border-[#B5C1ED] active:shadow-[0px_1px_2px_0px_rgba(192,206,255,0.50),0px_0px_0px_1px_#C0CEFF]"
           onClick={() => setIsPopupOpen(true)}
         >
           <span className="text-white text-center  text-sm not-italic font-medium leading-5 ">
