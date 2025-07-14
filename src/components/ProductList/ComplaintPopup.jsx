@@ -68,7 +68,7 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center cursor-pointer hover:bg-[#FAFAFA] transition-all duration-200 ease-out"
+          className="active:bg-[#FFFFFF] absolute w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center cursor-pointer hover:bg-[#FAFAFA] transition-all duration-200 ease-out"
           style={{ top: "-0.05rem", right: "-4.1rem" }}
           onClick={onClose}
         >
