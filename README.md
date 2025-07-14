@@ -60,6 +60,4 @@ npm start
 - **Font**: Inter v4.0
 - **Icons**: SVG assets
 
----
 
-Built with ❤️ using Next.js and Tailwind CSS
