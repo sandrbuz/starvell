@@ -48,7 +48,7 @@ export default function ProductListFilters() {
         <input
           type="text"
           placeholder="Поиск по описанию лота..."
-          className="flex-1 text-[#36394A] text-sm not-italic font-normal leading-5 bg-transparent border-none outline-none placeholder:text-[#9E9DA4]"
+          className="flex-1 text-[#36394A] text-sm not-italic font-normal leading-5 bg-transparent border-none outline-none placeholder:text-[#9E9DA4] hover:placeholder:text-[#6E7076]"
         />
         <Image src="/search.svg" alt="Search" width={16} height={16} />
       </div>

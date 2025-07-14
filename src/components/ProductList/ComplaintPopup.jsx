@@ -46,7 +46,7 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center cursor-pointer"
+          className="absolute w-12 h-12 flex-shrink-0 rounded-lg border-[0.75px] border-[#E8EBF0] bg-white shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] flex items-center justify-center cursor-pointer hover:bg-[#FAFAFA] transition-all duration-200 ease-out"
           style={{ top: "-0.05rem", right: "-4.1rem" }}
           onClick={onClose}
         >
@@ -75,7 +75,9 @@ export default function ComplaintPopup({ isOpen, onClose }) {
           >
             <span
               className={`flex-1 text-base not-italic font-normal leading-6 ${
-                isComplaintDropdownOpen ? "text-[#9E9DA4]" : "text-[#9E9DA4]"
+                isComplaintDropdownOpen
+                  ? "text-[#9E9DA4]"
+                  : "text-[#9E9DA4] hover:text-[#6E7076]"
               }`}
             >
               Выберите причину жалобы
@@ -90,33 +92,35 @@ export default function ComplaintPopup({ isOpen, onClose }) {
               }`}
             />
           </div>
-          {isComplaintDropdownOpen && (
-            <div className="absolute top-full mt-[7px] w-[440px] bg-white rounded-lg shadow-[0px_4px_16px_0px_rgba(14,18,27,0.08)] border border-[#E8EBF0] z-10">
-              <div className="p-1 flex flex-col gap-1">
-                {["Пункт меню", "Пункт меню", "Пункт меню", "Пункт меню"].map(
-                  (item, index) => (
-                    <div
-                      key={index}
-                      className="p-2 hover:bg-[#F7F7F7] cursor-pointer transition-colors rounded-lg"
-                      onClick={() => {
-                        setIsComplaintDropdownOpen(false);
+          <div
+            className={`dropdown-menu absolute top-full mt-[7px] w-[440px] bg-white rounded-lg shadow-[0px_4px_16px_0px_rgba(14,18,27,0.08)] border border-[#E8EBF0] z-10 ${
+              isComplaintDropdownOpen ? "show" : ""
+            }`}
+          >
+            <div className="p-1 flex flex-col gap-1">
+              {["Пункт меню", "Пункт меню", "Пункт меню", "Пункт меню"].map(
+                (item, index) => (
+                  <div
+                    key={index}
+                    className="p-2 hover:bg-[#F7F7F7] cursor-pointer rounded-lg transition-all duration-200 ease-out"
+                    onClick={() => {
+                      setIsComplaintDropdownOpen(false);
+                    }}
+                  >
+                    <span
+                      className="text-[#36394A] text-base not-italic font-normal leading-6"
+                      style={{
+                        fontFeatureSettings:
+                          "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
                       }}
                     >
-                      <span
-                        className="text-[#36394A] text-base not-italic font-normal leading-6"
-                        style={{
-                          fontFeatureSettings:
-                            "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
-                        }}
-                      >
-                        {item}
-                      </span>
-                    </div>
-                  )
-                )}
-              </div>
+                      {item}
+                    </span>
+                  </div>
+                )
+              )}
             </div>
-          )}
+          </div>
         </div>
         <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-4">
           Опишите проблему
@@ -124,7 +128,7 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         <div className="relative w-full mt-1">
           <textarea
             placeholder="Введите ваш текст"
-            className="text-[#36394A] w-full min-h-[110px] pb-2 pt-[7px] px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
+            className="hover:placeholder:text-[#6E7076] text-[#36394A] w-full min-h-[110px] pb-2 pt-[7px] px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
             maxLength={200}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             value={textareaValue}

@@ -28,6 +28,20 @@ tr {
   transform: translateY(0);
 }
 
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.15s ease-out, visibility 0.15s ease-out,
+    transform 0.15s ease-out;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 body {
   font-family: "Inter", sans-serif;
   background-color: #f7f7f7;

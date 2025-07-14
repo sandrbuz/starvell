@@ -58,7 +58,9 @@ export default function ProductListHeader({
           >
             <span
               className={`text-sm not-italic font-normal leading-5 flex-1 ${
-                isDeliveryDropdownOpen ? "text-[#9E9DA4]" : "text-[#36394A]"
+                isDeliveryDropdownOpen
+                  ? "text-[#9E9DA4]"
+                  : "text-[#36394A] hover:text-[#6E7076]"
               }`}
             >
               Способ доставки
@@ -74,33 +76,35 @@ export default function ProductListHeader({
             />
           </div>
 
-          {isDeliveryDropdownOpen && (
-            <div className="absolute top-full mt-[7px] w-[167px] bg-white rounded-lg shadow-[0px_4px_16px_0px_rgba(14,18,27,0.08)] border border-[#E8EBF0] z-10">
-              <div className="p-1 flex flex-col gap-1">
-                {["Пункт меню", "Пункт меню", "Пункт меню", "Пункт меню"].map(
-                  (item, index) => (
-                    <div
-                      key={index}
-                      className="p-2 hover:bg-[#F7F7F7] cursor-pointer transition-colors rounded-lg"
-                      onClick={() => {
-                        setIsDeliveryDropdownOpen(false);
+          <div
+            className={`dropdown-menu absolute top-full mt-[7px] w-[167px] bg-white rounded-lg shadow-[0px_4px_16px_0px_rgba(14,18,27,0.08)] border border-[#E8EBF0] z-10 ${
+              isDeliveryDropdownOpen ? "show" : ""
+            }`}
+          >
+            <div className="p-1 flex flex-col gap-1">
+              {["Пункт меню", "Пункт меню", "Пункт меню", "Пункт меню"].map(
+                (item, index) => (
+                  <div
+                    key={index}
+                    className="p-2 hover:bg-[#F7F7F7] cursor-pointer rounded-lg transition-all duration-200 ease-out"
+                    onClick={() => {
+                      setIsDeliveryDropdownOpen(false);
+                    }}
+                  >
+                    <span
+                      className="text-[#36394A] text-sm not-italic font-normal leading-5"
+                      style={{
+                        fontFeatureSettings:
+                          "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
                       }}
                     >
-                      <span
-                        className="text-[#36394A] text-sm not-italic font-normal leading-5"
-                        style={{
-                          fontFeatureSettings:
-                            "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
-                        }}
-                      >
-                        {item}
-                      </span>
-                    </div>
-                  )
-                )}
-              </div>
+                      {item}
+                    </span>
+                  </div>
+                )
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
 
