@@ -4,6 +4,59 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import ProductRow from "./ProductRow";
 
+// Компоненты иконок сортировки
+const SortIconDefault = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    className="w-3 h-4"
+  >
+    <path
+      d="M3.93137 5C3.32555 5 3.02265 5 2.88238 4.8802C2.76068 4.77626 2.69609 4.62033 2.70865 4.46077C2.72312 4.27688 2.93731 4.06269 3.36569 3.63431L5.43431 1.56569C5.63232 1.36768 5.73133 1.26867 5.84549 1.23158C5.94591 1.19895 6.05409 1.19895 6.15451 1.23158C6.26867 1.26867 6.36768 1.36768 6.56569 1.56569L8.63432 3.63432C9.06269 4.06269 9.27688 4.27688 9.29135 4.46077C9.30391 4.62033 9.23932 4.77626 9.11762 4.8802C8.97735 5 8.67445 5 8.06863 5H3.93137Z"
+      fill="#6E7076"
+    />
+    <path
+      d="M3.93137 7C3.32555 7 3.02265 7 2.88238 7.1198C2.76068 7.22374 2.69609 7.37967 2.70865 7.53923C2.72312 7.72312 2.93731 7.93731 3.36569 8.36569L5.43431 10.4343C5.63232 10.6323 5.73133 10.7313 5.84549 10.7684C5.94591 10.8011 6.05409 10.8011 6.15451 10.7684C6.26867 10.7313 6.36768 10.6323 6.56569 10.4343L8.63432 8.36568C9.06269 7.93731 9.27688 7.72312 9.29135 7.53923C9.30391 7.37967 9.23932 7.22374 9.11762 7.1198C8.97735 7 8.67445 7 8.06863 7H3.93137Z"
+      fill="#6E7076"
+    />
+  </svg>
+);
+
+const SortIconDown = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    className="w-3 h-4 pb-0.5"
+  >
+    <path
+      d="M3.93137 7C3.32555 7 3.02265 7 2.88238 7.1198C2.76068 7.22374 2.69609 7.37967 2.70865 7.53923C2.72312 7.72312 2.93731 7.93731 3.36569 8.36569L5.43431 10.4343C5.63232 10.6323 5.73133 10.7313 5.84549 10.7684C5.94591 10.8011 6.05409 10.8011 6.15451 10.7684C6.26867 10.7313 6.36768 10.6323 6.56569 10.4343L8.63432 8.36568C9.06269 7.93731 9.27688 7.72312 9.29135 7.53923C9.30391 7.37967 9.23932 7.22374 9.11762 7.1198C8.97735 7 8.67445 7 8.06863 7H3.93137Z"
+      fill="#6E7076"
+    />
+  </svg>
+);
+
+const SortIconUp = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    className="w-3 h-4 mt-1"
+  >
+    <path
+      d="M3.93137 5C3.32555 5 3.02265 5 2.88238 4.8802C2.76068 4.77626 2.69609 4.62033 2.70865 4.46077C2.72312 4.27688 2.93731 4.06269 3.36569 3.63431L5.43431 1.56569C5.63232 1.36768 5.73133 1.26867 5.84549 1.23158C5.94591 1.19895 6.05409 1.19895 6.15451 1.23158C6.26867 1.26867 6.36768 1.36768 6.56569 1.56569L8.63432 3.63432C9.06269 4.06269 9.27688 4.27688 9.29135 4.46077C9.30391 4.62033 9.23932 4.77626 9.11762 4.8802C8.97735 5 8.67445 5 8.06863 5H3.93137Z"
+      fill="#6E7076"
+    />
+  </svg>
+);
+
 export default function ProductsTable() {
   const [products, setProducts] = useState([
     {
@@ -227,6 +280,54 @@ export default function ProductsTable() {
   ]);
   const descriptionRefs = useRef([]);
   const [tallRows, setTallRows] = useState(new Set());
+  const [amountSort, setAmountSort] = useState("default"); // 'default', 'down', 'up'
+  const [priceSort, setPriceSort] = useState("default"); // 'default', 'down', 'up'
+
+  const handleAmountSort = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (amountSort === "default") {
+      setAmountSort("down");
+    } else if (amountSort === "down") {
+      setAmountSort("up");
+    } else {
+      setAmountSort("default");
+    }
+  };
+
+  const handlePriceSort = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (priceSort === "default") {
+      setPriceSort("down");
+    } else if (priceSort === "down") {
+      setPriceSort("up");
+    } else {
+      setPriceSort("default");
+    }
+  };
+
+  const getAmountSortIcon = () => {
+    switch (amountSort) {
+      case "down":
+        return <SortIconDown />;
+      case "up":
+        return <SortIconUp />;
+      default:
+        return <SortIconDefault />;
+    }
+  };
+
+  const getPriceSortIcon = () => {
+    switch (priceSort) {
+      case "down":
+        return <SortIconDown />;
+      case "up":
+        return <SortIconUp />;
+      default:
+        return <SortIconDefault />;
+    }
+  };
 
   useEffect(() => {
     const newTallRows = new Set();
@@ -257,31 +358,25 @@ export default function ProductsTable() {
           Продавец
         </div>
         <div className="w-[108px] flex justify-end items-center">
-          <div className="cursor-pointer flex items-center gap-1">
+          <div
+            className="cursor-pointer flex items-center gap-1 select-none"
+            onClick={handleAmountSort}
+          >
             <span className="cursor-pointer text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
               Наличие
             </span>
-            <Image
-              className="cursor-pointer"
-              src="/icon-sort.svg"
-              alt="sort"
-              width={12}
-              height={12}
-            />
+            {getAmountSortIcon()}
           </div>
         </div>
         <div className="w-[100px] flex justify-end items-center">
-          <div className="cursor-pointer flex items-center gap-1">
+          <div
+            className="cursor-pointer flex items-center gap-1 select-none"
+            onClick={handlePriceSort}
+          >
             <span className="cursor-pointer text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
               Цена
             </span>
-            <Image
-              className="cursor-pointer"
-              src="/icon-sort.svg"
-              alt="sort"
-              width={12}
-              height={12}
-            />
+            {getPriceSortIcon()}
           </div>
         </div>
       </div>
