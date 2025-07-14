@@ -198,7 +198,6 @@ export default function ComplaintPopup({ isOpen, onClose }) {
               </span>
             </div>
           </div>
-          {/* Пунктирная рамка с длинными штрихами */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{

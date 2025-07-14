@@ -9,7 +9,6 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
         !isLast ? "border-b border-[#E8EBF0]" : ""
       }`}
     >
-      {/* Описание */}
       <td ref={descriptionRef} className="align-middle">
         <div className="text-sm min-h-[59px] pr-6 py-2 overflow-hidden">
           <div className="description-text w-[616px] text-[#36394A] text-base not-italic font-normal leading-6 line-clamp-2">
@@ -18,7 +17,6 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
         </div>
       </td>
 
-      {/* Продавец */}
       <td className="align-middle">
         <div className="text-sm min-h-[59px] py-2 flex gap-1">
           <Image
@@ -56,14 +54,12 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
         </div>
       </td>
 
-      {/* Наличие */}
       <td className="align-middle text-right">
         <div className="min-h-[59px] py-2 text-[#36394A] text-base not-italic font-normal leading-6">
           {product.amount}
         </div>
       </td>
 
-      {/* Цена */}
       <td className="align-middle text-right">
         <div className=" min-h-[59px] py-2 flex flex-col gap-1">
           <div className="pr-[2px] text-[#36394A] text-right text-base not-italic font-semibold leading-6">

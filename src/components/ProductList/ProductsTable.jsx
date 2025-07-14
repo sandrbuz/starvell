@@ -232,7 +232,7 @@ export default function ProductsTable() {
       if (tdRef) {
         const descriptionDiv = tdRef.querySelector(".description-text");
         if (descriptionDiv) {
-          const lineHeight = 24; // фиксировано из leading-6
+          const lineHeight = 24;
           if (descriptionDiv.scrollHeight > lineHeight * 1.5) {
             tdRef.style.height = "81px";
           }
@@ -243,7 +243,6 @@ export default function ProductsTable() {
 
   return (
     <div className="mt-[31px]">
-      {/* Заголовки таблицы */}
       <div className="flex mb-1 gap-6">
         <div className="w-[618px] text-[#6E7076] text-sm font-normal not-italic leading-5">
           Описание
@@ -265,7 +264,6 @@ export default function ProductsTable() {
         </div>
       </div>
 
-      {/* Таблица */}
       <table
         className="bg-white rounded-lg mt-1"
         style={{ width: "1128px", tableLayout: "fixed" }}
