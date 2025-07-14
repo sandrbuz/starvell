@@ -6,7 +6,9 @@ import Image from "next/image";
 export default function ComplaintPopup({ isOpen, onClose }) {
   const [textareaValue, setTextareaValue] = useState("");
   const [isComplaintDropdownOpen, setIsComplaintDropdownOpen] = useState(false);
+  const [textareaHeight, setTextareaHeight] = useState(110);
   const complaintDropdownRef = useRef(null);
+  const textareaRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -29,6 +31,26 @@ export default function ComplaintPopup({ isOpen, onClose }) {
       setIsComplaintDropdownOpen(false);
     }
   }, [isOpen]);
+
+  const handleResizeStart = (e) => {
+    e.preventDefault();
+    const startY = e.clientY;
+    const startHeight = textareaHeight;
+
+    const handleMouseMove = (e) => {
+      const deltaY = e.clientY - startY;
+      const newHeight = Math.max(110, startHeight + deltaY);
+      setTextareaHeight(newHeight);
+    };
+
+    const handleMouseUp = () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
 
   return (
     <div
@@ -125,22 +147,38 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-4">
           Опишите проблему
         </div>
-        <div className="relative w-full mt-1">
+        <div
+          className="relative w-full mt-1 border border-[#E8EBF0] rounded-lg flex flex-col"
+          style={{ height: `${textareaHeight}px` }}
+        >
           <textarea
+            ref={textareaRef}
             placeholder="Введите ваш текст"
-            className="hover:placeholder:text-[#6E7076] text-[#36394A] w-full min-h-[110px] pb-2 pt-[7px] px-2.5 resize-y bg-transparent border border-[#E8EBF0] outline-none text-[#36394A] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] rounded-lg"
+            className="hover:placeholder:text-[#6E7076] text-[#36394A] w-full flex-1 pt-[7px] px-2.5 resize-none bg-transparent outline-none text-[#36394A] text-base not-italic font-normal leading-6 placeholder:text-[#9E9DA4] border-none"
+            style={{
+              height: "72px",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
             maxLength={200}
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             value={textareaValue}
             onChange={(e) => setTextareaValue(e.target.value)}
           />
-          <div className="absolute bottom-2 right-2.5 mb-1 mr-4">
+          <div className="flex justify-end items-center gap-1 px-2.5 pb-2">
             <span className="text-[#9E9DA4] text-right text-xs not-italic font-medium leading-[18px] tracking-[0.24px] uppercase">
               {textareaValue.length}/200
             </span>
+            <Image
+              src="/icon-for-textaria.svg"
+              alt="Resize"
+              width={12}
+              height={12}
+              className="cursor-nw-resize hover:opacity-70 transition-opacity duration-200"
+              onMouseDown={handleResizeStart}
+            />
           </div>
         </div>
-        <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-[10px]">
+        <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-[16px]">
           Доказательства
         </div>
         <div className="flex px-[27px] py-[15px] flex-col justify-center items-center gap-3 self-stretch rounded-lg border border-dashed border-[#9E9DA4] mt-1">
