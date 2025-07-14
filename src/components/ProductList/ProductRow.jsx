@@ -2,9 +2,17 @@ import Image from "next/image";
 import { useState } from "react";
 import { getStarIcon, getRatingStyles } from "../utils";
 
-export default function ProductRow({ product, index, descriptionRef, isLast }) {
+export default function ProductRow({
+  product,
+  index,
+  descriptionRef,
+  isLast,
+  isTallRow,
+}) {
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
+
+  const divHeight = isTallRow ? "h-[72px]" : "h-[67px]";
 
   return (
     <tr
@@ -13,7 +21,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
     >
       <td ref={descriptionRef} className="align-middle">
         <div
-          className={`cursor-pointer flex items-center h-[67px] w-[656px] -ml-2.5 rounded-l-lg ${
+          className={`flex items-center ${divHeight} w-[656px] -ml-2.5 rounded-l-lg ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -31,7 +39,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
 
       <td className="align-middle">
         <div
-          className={`cursor-pointer flex items-center h-[67px] w-[280px] ${
+          className={`flex items-center ${divHeight} w-[280px] ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -78,7 +86,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
 
       <td className="align-middle text-right">
         <div
-          className={`cursor-pointer flex items-center h-[67px] w-[120px] pr-3.5 justify-end ${
+          className={`flex items-center ${divHeight} w-[120px] pr-3.5 justify-end ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -94,7 +102,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
 
       <td className="align-middle text-right">
         <div
-          className={`cursor-pointer flex items-center h-[67px] w-[140px] -mr-5 rounded-r-lg justify-end ${
+          className={`flex items-center ${divHeight} w-[140px] -mr-5 rounded-r-lg justify-end ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}

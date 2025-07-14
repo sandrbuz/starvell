@@ -226,19 +226,25 @@ export default function ProductsTable() {
     },
   ]);
   const descriptionRefs = useRef([]);
+  const [tallRows, setTallRows] = useState(new Set());
 
   useEffect(() => {
-    descriptionRefs.current.forEach((tdRef) => {
+    const newTallRows = new Set();
+
+    descriptionRefs.current.forEach((tdRef, index) => {
       if (tdRef) {
         const descriptionDiv = tdRef.querySelector(".description-text");
         if (descriptionDiv) {
           const lineHeight = 24;
           if (descriptionDiv.scrollHeight > lineHeight * 1.5) {
             tdRef.style.height = "81px";
+            newTallRows.add(index);
           }
         }
       }
     });
+
+    setTallRows(newTallRows);
   }, []);
 
   return (
@@ -298,6 +304,7 @@ export default function ProductsTable() {
               index={index}
               descriptionRef={(el) => (descriptionRefs.current[index] = el)}
               isLast={index === products.length - 1}
+              isTallRow={tallRows.has(index)}
             />
           ))}
         </tbody>
