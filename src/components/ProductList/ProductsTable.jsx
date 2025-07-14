@@ -250,17 +250,33 @@ export default function ProductsTable() {
         <div className="w-[230px] text-[#6E7076] text-sm font-normal not-italic leading-5">
           Продавец
         </div>
-        <div className="w-[108px] flex justify-end items-center gap-1">
-          <span className="text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
-            Наличие
-          </span>
-          <Image src="/icon-sort.svg" alt="sort" width={12} height={12} />
+        <div className="w-[108px] flex justify-end items-center">
+          <div className="cursor-pointer flex items-center gap-1">
+            <span className="cursor-pointer text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
+              Наличие
+            </span>
+            <Image
+              className="cursor-pointer"
+              src="/icon-sort.svg"
+              alt="sort"
+              width={12}
+              height={12}
+            />
+          </div>
         </div>
-        <div className="w-[100px] flex justify-end items-center gap-1">
-          <span className="text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
-            Цена
-          </span>
-          <Image src="/icon-sort.svg" alt="sort" width={12} height={12} />
+        <div className="w-[100px] flex justify-end items-center">
+          <div className="cursor-pointer flex items-center gap-1">
+            <span className="cursor-pointer text-[#6E7076] text-right text-sm not-italic font-normal leading-5">
+              Цена
+            </span>
+            <Image
+              className="cursor-pointer"
+              src="/icon-sort.svg"
+              alt="sort"
+              width={12}
+              height={12}
+            />
+          </div>
         </div>
       </div>
 

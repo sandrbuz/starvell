@@ -13,7 +13,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
     >
       <td ref={descriptionRef} className="align-middle">
         <div
-          className={`flex items-center h-[67px] w-[656px] -ml-2.5 rounded-l-lg ${
+          className={`cursor-pointer flex items-center h-[67px] w-[656px] -ml-2.5 rounded-l-lg ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -31,7 +31,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
 
       <td className="align-middle">
         <div
-          className={`flex items-center h-[67px] w-[280px] ${
+          className={`cursor-pointer flex items-center h-[67px] w-[280px] ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -78,7 +78,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
 
       <td className="align-middle text-right">
         <div
-          className={`flex items-center h-[67px] w-[120px] pr-3.5 justify-end ${
+          className={`cursor-pointer flex items-center h-[67px] w-[120px] pr-3.5 justify-end ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -94,7 +94,7 @@ export default function ProductRow({ product, index, descriptionRef, isLast }) {
 
       <td className="align-middle text-right">
         <div
-          className={`flex items-center h-[67px] w-[140px] -mr-5 rounded-r-lg justify-end ${
+          className={`cursor-pointer flex items-center h-[67px] w-[140px] -mr-5 rounded-r-lg justify-end ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}

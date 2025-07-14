@@ -9,15 +9,17 @@ export default function ProductListFilters() {
 
   return (
     <div className="flex gap-1 mt-[7px]">
-      <div className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0]">
+      <div
+        className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0] cursor-pointer"
+        onClick={() => setIsOnlineOnly(!isOnlineOnly)}
+      >
         <span className="text-[#36394A] text-sm not-italic font-normal leading-5">
           Только продавцы онлайн
         </span>
         <div
-          className={`relative w-7 h-4 rounded-full cursor-pointer transition-colors duration-200 ${
+          className={`relative w-7 h-4 rounded-full transition-colors duration-200 ${
             isOnlineOnly ? "bg-[#4E75FE]" : "bg-[#E8EBF0]"
           }`}
-          onClick={() => setIsOnlineOnly(!isOnlineOnly)}
         >
           <div
             className={`absolute top-0.5 w-3 h-3 bg-white rounded-full shadow-sm transition-transform duration-200 ${
@@ -26,16 +28,18 @@ export default function ProductListFilters() {
           />
         </div>
       </div>
-      <div className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0]">
+      <div
+        className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0] cursor-pointer"
+        onClick={() => setIsInstantDelivery(!isInstantDelivery)}
+      >
         <Image src="/lightning.svg" alt="Lightning" width={12} height={12} />
         <span className="text-[#36394A] text-sm not-italic font-normal leading-5">
           Моментальная доставка
         </span>
         <div
-          className={`relative w-7 h-4 rounded-full cursor-pointer transition-colors duration-200 ${
+          className={`relative w-7 h-4 rounded-full transition-colors duration-200 ${
             isInstantDelivery ? "bg-[#4E75FE]" : "bg-[#E8EBF0]"
           }`}
-          onClick={() => setIsInstantDelivery(!isInstantDelivery)}
         >
           <div
             className={`absolute top-0.5 w-3 h-3 bg-white rounded-full shadow-sm transition-transform duration-200 ${
