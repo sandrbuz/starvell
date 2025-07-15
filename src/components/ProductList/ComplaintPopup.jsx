@@ -182,7 +182,13 @@ export default function ComplaintPopup({ isOpen, onClose }) {
           Доказательства
         </div>
         <div className="relative h-[116px] hover:bg-[#FAFAFA] active:bg-[#FFFFFF] rounded-lg group transition-all duration-200 ease-out">
-          <div className="flex px-[27px] py-[15px] flex-col justify-center items-center gap-3 self-stretch rounded-lg mt-1">
+          <div
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='rgba(158, 157, 164, 1)' stroke-width='2' stroke-dasharray='7.6%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
+              borderRadius: "8px",
+            }}
+            className="flex px-[27px] py-[16px] flex-col justify-center items-center gap-3 self-stretch rounded-lg mt-1"
+          >
             <Image
               src="/upload-cloud.svg"
               alt="Upload"
@@ -198,22 +204,6 @@ export default function ComplaintPopup({ isOpen, onClose }) {
               </span>
             </div>
           </div>
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              borderRadius: "10px",
-              background: `
-                linear-gradient(90deg, #9E9DA4 0px, #9E9DA4 8px, transparent 8px, transparent 14px),
-                linear-gradient(180deg, #9E9DA4 0px, #9E9DA4 8px, transparent 8px, transparent 14px),
-                linear-gradient(270deg, #9E9DA4 0px, #9E9DA4 8px, transparent 8px, transparent 14px),
-                linear-gradient(0deg, #9E9DA4 0px, #9E9DA4 8px, transparent 8px, transparent 14px)
-              `,
-              backgroundSize: "14px 1px, 1px 14px, 14px 1px, 1px 14px",
-              backgroundPosition:
-                "-9px 0, 100% -9px, calc(100% + 9px) 100%, 0 calc(100% + 9px)",
-              backgroundRepeat: "repeat-x, repeat-y, repeat-x, repeat-y",
-            }}
-          />
         </div>
         <div className="flex gap-2 mt-5">
           <button className="cursor-pointer group flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)] hover:bg-[#FAFAFA] active:bg-white active:shadow-[0px_1px_2px_0px_rgba(164,172,185,0.16),0px_0px_0px_1px_rgba(18,55,105,0.05)]">
