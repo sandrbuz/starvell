@@ -50,25 +50,28 @@ export default function RootLayout({ children }) {
                 alt="socials"
                 width={44}
                 height={44}
-                className="w-[44px] h-[44px]"
+                className="w-[44px] h-[44px] cursor-pointer transition-all duration-300 hover:[filter:drop-shadow(0px_0px_12px_rgba(164,219,240,0.5))] active:opacity-40"
               />
               <Image
                 src="/icon-social-ds.svg"
                 alt="socials"
                 width={44}
                 height={44}
+                className="w-[44px] h-[44px] cursor-pointer transition-all duration-300 hover:[filter:drop-shadow(0px_0px_12px_rgba(180,185,240,0.5))] active:opacity-40"
               />
               <Image
                 src="/icon-social-vk.svg"
                 alt="socials"
                 width={44}
                 height={44}
+                className="w-[44px] h-[44px] cursor-pointer transition-all duration-300 hover:[filter:drop-shadow(0px_0px_12px_rgba(160,180,210,0.5))] active:opacity-40"
               />
               <Image
                 src="/icon-social-yt.svg"
                 alt="socials"
                 width={44}
                 height={44}
+                className="w-[44px] h-[44px] cursor-pointer transition-all duration-300 hover:[filter:drop-shadow(0px_0px_12px_rgba(220,160,170,0.4))] active:opacity-40"
               />
             </div>
           </div>
