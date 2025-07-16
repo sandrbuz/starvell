@@ -178,7 +178,7 @@ export default function ComplaintPopup({ isOpen, onClose }) {
             />
           </div>
         </div>
-        <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-[16px]">
+        <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-[15px]">
           Доказательства
         </div>
         <div className="relative h-[116px] hover:bg-[#FAFAFA] active:bg-[#FFFFFF] rounded-lg group transition-all duration-200 ease-out">
