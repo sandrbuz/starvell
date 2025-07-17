@@ -48,13 +48,19 @@ export default function ProductListFilters() {
           />
         </div>
       </div>
-      <div className="flex px-3 py-2 items-center gap-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0] w-[317px]">
+      <div className="relative">
         <input
-          type="text"
+          type="search"
           placeholder="Поиск по описанию лота..."
-          className="flex-1 text-[#36394A] text-sm not-italic font-normal leading-5 bg-transparent border-none outline-none placeholder:text-[#9E9DA4] hover:placeholder:text-[#6E7076]"
+          className="w-[317px] pl-3 pr-10 py-2 rounded-lg shadow-[inset_0_0_0_1px_#E8EBF0] text-[#36394A] text-sm not-italic font-normal leading-5 bg-transparent border-none outline-none placeholder:text-[#9E9DA4] hover:placeholder:text-[#6E7076] [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none"
         />
-        <Image src="/search.svg" alt="Search" width={16} height={16} />
+        <Image
+          src="/search.svg"
+          alt="Search"
+          width={16}
+          height={16}
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
+        />
       </div>
     </div>
   );

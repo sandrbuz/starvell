@@ -39,7 +39,7 @@ export default function ProductRow({
 
       <td className="align-middle">
         <div
-          className={`flex items-center ${divHeight} w-[280px] ${
+          className={`pl-[1px] flex items-center ${divHeight} w-[280px] ${
             isActive ? "bg-white" : isHovered ? "bg-[#FAFAFA]" : ""
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -55,7 +55,7 @@ export default function ProductRow({
               height={30}
               className="h-[30px] w-[30px]"
             />
-            <div className="flex flex-col">
+            <div className="flex flex-col pl-[2px]">
               <div className="flex gap-1 items-center">
                 <div className="text-[#36394A] text-base not-italic font-medium leading-6">
                   {product.seller.name}

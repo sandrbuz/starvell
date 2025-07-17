@@ -6,7 +6,9 @@ import Image from "next/image";
 export default function ComplaintPopup({ isOpen, onClose }) {
   const [textareaValue, setTextareaValue] = useState("");
   const [isComplaintDropdownOpen, setIsComplaintDropdownOpen] = useState(false);
+  const [isComplaintVisible, setIsComplaintVisible] = useState(false);
   const [textareaHeight, setTextareaHeight] = useState(110);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const complaintDropdownRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -16,7 +18,8 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         complaintDropdownRef.current &&
         !complaintDropdownRef.current.contains(event.target)
       ) {
-        setIsComplaintDropdownOpen(false);
+        setIsComplaintVisible(false);
+        setTimeout(() => setIsComplaintDropdownOpen(false), 300);
       }
     }
 
@@ -29,6 +32,15 @@ export default function ComplaintPopup({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen) {
       setIsComplaintDropdownOpen(false);
+      setIsComplaintVisible(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => setIsPopupVisible(true), 10);
+    } else {
+      setIsPopupVisible(false);
     }
   }, [isOpen]);
 
@@ -54,17 +66,22 @@ export default function ComplaintPopup({ isOpen, onClose }) {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center z-50 popup-overlay ${
-        isOpen ? "show" : ""
+      className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ${
+        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       style={{
-        backgroundColor: "rgba(0, 0, 0, 0.24)",
-        backdropFilter: "blur(2px)",
+        backgroundColor: isPopupVisible ? "rgba(0, 0, 0, 0.24)" : "transparent",
+        backdropFilter: isPopupVisible ? "blur(2px)" : "none",
+        transition: "background-color 300ms ease, backdrop-filter 300ms ease",
       }}
       onClick={isOpen ? onClose : undefined}
     >
       <div
-        className="popup-content pt-[24px] pl-[23px] pb-[22px] pr-[23px] bg-white w-[488px] rounded-2xl border border-[#E8EBF0] shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] relative"
+        className={`pt-[24px] pl-[23px] pb-[22px] pr-[23px] bg-white w-[488px] rounded-2xl border border-[#E8EBF0] shadow-[0px_16px_32px_-12px_rgba(14,18,27,0.02)] relative transition-all duration-300 transform ${
+          isPopupVisible
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-8 scale-95"
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -88,16 +105,24 @@ export default function ComplaintPopup({ isOpen, onClose }) {
         </div>
         <div className="relative mt-1" ref={complaintDropdownRef}>
           <div
-            className={`flex w-[439px] px-3 py-2 items-center gap-2 rounded-lg cursor-pointer ${
-              isComplaintDropdownOpen
+            className={`flex w-[440px] px-3 py-2 items-center gap-2 rounded-lg cursor-pointer ${
+              isComplaintVisible
                 ? "bg-[#F7F7F7] shadow-[inset_0_0_0_1px_#D4D7DD]"
                 : "shadow-[inset_0_0_0_1px_#E8EBF0]"
             }`}
-            onClick={() => setIsComplaintDropdownOpen(!isComplaintDropdownOpen)}
+            onClick={() => {
+              if (!isComplaintDropdownOpen) {
+                setIsComplaintDropdownOpen(true);
+                setTimeout(() => setIsComplaintVisible(true), 10);
+              } else {
+                setIsComplaintVisible(false);
+                setTimeout(() => setIsComplaintDropdownOpen(false), 300);
+              }
+            }}
           >
             <span
               className={`flex-1 text-base not-italic font-normal leading-6 ${
-                isComplaintDropdownOpen
+                isComplaintVisible
                   ? "text-[#9E9DA4]"
                   : "text-[#9E9DA4] hover:text-[#6E7076]"
               }`}
@@ -110,39 +135,47 @@ export default function ComplaintPopup({ isOpen, onClose }) {
               width={17}
               height={16}
               className={`w-[17px] h-4 transition-transform duration-200 ${
-                isComplaintDropdownOpen ? "rotate-180" : ""
+                isComplaintVisible ? "rotate-180" : ""
               }`}
             />
           </div>
-          <div
-            className={`dropdown-menu absolute top-full mt-[7px] w-[440px] bg-white rounded-lg shadow-[0px_4px_16px_0px_rgba(14,18,27,0.08)] border border-[#E8EBF0] z-10 ${
-              isComplaintDropdownOpen ? "show" : ""
-            }`}
-          >
-            <div className="p-1 flex flex-col gap-1">
-              {["Пункт меню", "Пункт меню", "Пункт меню", "Пункт меню"].map(
-                (item, index) => (
-                  <div
-                    key={index}
-                    className="p-2 hover:bg-[#F7F7F7] cursor-pointer rounded-lg transition-all duration-200 ease-out"
-                    onClick={() => {
-                      setIsComplaintDropdownOpen(false);
-                    }}
-                  >
-                    <span
-                      className="text-[#36394A] text-base not-italic font-normal leading-6"
-                      style={{
-                        fontFeatureSettings:
-                          "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
+          {isComplaintDropdownOpen && (
+            <div
+              className={`absolute top-full mt-[7px] w-[440px] bg-white rounded-lg shadow-[0px_4px_16px_0px_rgba(14,18,27,0.08)] border border-[#E8EBF0] z-10 transition-all duration-300 transform ${
+                isComplaintVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-2"
+              }`}
+            >
+              <div className="p-1 flex flex-col gap-1">
+                {["Пункт меню", "Пункт меню", "Пункт меню", "Пункт меню"].map(
+                  (item, index) => (
+                    <div
+                      key={index}
+                      className="p-2 hover:bg-[#F7F7F7] cursor-pointer rounded-lg transition-all duration-200 ease-out"
+                      onClick={() => {
+                        setIsComplaintVisible(false);
+                        setTimeout(
+                          () => setIsComplaintDropdownOpen(false),
+                          300
+                        );
                       }}
                     >
-                      {item}
-                    </span>
-                  </div>
-                )
-              )}
+                      <span
+                        className="text-[#36394A] text-base not-italic font-normal leading-6"
+                        style={{
+                          fontFeatureSettings:
+                            "'ss11' on, 'cv09' on, 'liga' off, 'calt' off",
+                        }}
+                      >
+                        {item}
+                      </span>
+                    </div>
+                  )
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="text-[#6E7076] text-sm not-italic font-normal leading-5 mt-4">
           Опишите проблему
@@ -206,12 +239,12 @@ export default function ComplaintPopup({ isOpen, onClose }) {
           </div>
         </div>
         <div className="flex gap-2 mt-5">
-          <button className="cursor-pointer group flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)] hover:bg-[#FAFAFA] active:bg-white active:shadow-[0px_1px_2px_0px_rgba(164,172,185,0.16),0px_0px_0px_1px_rgba(18,55,105,0.05)]">
-            <span className="text-[#36394A] group-active:text-[#AFB0B7] text-center text-base not-italic font-medium leading-6">
+          <button className="cursor-pointer hover:bg-[#FAFAFA] active:opacity-40 flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg bg-gradient-to-b from-transparent to-[rgba(193,199,208,0.02)] bg-white shadow-[0px_1px_2px_0px_rgba(164,172,185,0.24),0px_0px_0px_1px_rgba(18,55,105,0.08)]">
+            <span className="text-[#36394A]  text-center text-base not-italic font-medium leading-6">
               Мне нужна поддержка
             </span>
           </button>
-          <button className="cursor-pointer flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg border border-[#6385FF] bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] hover:bg-[#2850DC] active:bg-[#B9C8FF] active:border-[#B5C1ED] active:shadow-[0px_1px_2px_0px_rgba(192,206,255,0.50),0px_0px_0px_1px_#C0CEFF]">
+          <button className="cursor-pointer flex w-[216px] h-10 px-3 py-1 justify-center items-center gap-1.5 flex-shrink-0 rounded-lg  bg-[#4E75FF] shadow-[0px_1px_2px_0px_rgba(57,89,204,0.50),0px_0px_0px_1px_#4665D2] border border-[#6385FF] hover:bg-[#2850DC] active:opacity-40">
             <span className="text-white text-center text-base not-italic font-medium leading-6">
               Пожаловаться
             </span>

@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import ProductRow from "./ProductRow";
 
-// Компоненты иконок сортировки
 const SortIconDefault = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -280,8 +279,8 @@ export default function ProductsTable() {
   ]);
   const descriptionRefs = useRef([]);
   const [tallRows, setTallRows] = useState(new Set());
-  const [amountSort, setAmountSort] = useState("default"); // 'default', 'down', 'up'
-  const [priceSort, setPriceSort] = useState("default"); // 'default', 'down', 'up'
+  const [amountSort, setAmountSort] = useState("default");
+  const [priceSort, setPriceSort] = useState("default");
 
   const handleAmountSort = (e) => {
     e.preventDefault();
@@ -351,10 +350,10 @@ export default function ProductsTable() {
   return (
     <div className="mt-[31px]">
       <div className="flex mb-1 gap-6">
-        <div className="w-[618px] text-[#6E7076] text-sm font-normal not-italic leading-5">
+        <div className="w-[617px] text-[#6E7076] text-sm font-normal not-italic leading-5">
           Описание
         </div>
-        <div className="w-[230px] text-[#6E7076] text-sm font-normal not-italic leading-5">
+        <div className="w-[228px] text-[#6E7076] text-sm font-normal not-italic leading-5">
           Продавец
         </div>
         <div className="w-[108px] flex justify-end items-center">
@@ -368,7 +367,7 @@ export default function ProductsTable() {
             {getAmountSortIcon()}
           </div>
         </div>
-        <div className="w-[100px] flex justify-end items-center">
+        <div className="w-[103px] flex justify-end items-center">
           <div
             className="cursor-pointer flex items-center gap-1 select-none"
             onClick={handlePriceSort}
